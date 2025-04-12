@@ -114,7 +114,7 @@ function getPolynom(...rest) {
 function memoize(func) {
   let cache;
   let isFirstRun = true;
-  return function (...rest) {
+  return function result(...rest) {
     if (isFirstRun) {
       cache = func(...rest);
       isFirstRun = false;
@@ -141,7 +141,7 @@ function memoize(func) {
 function retry(func, attempts) {
   let attempt = 0;
   let errorMessage;
-  return function () {
+  return function result() {
     while (attempt < attempts) {
       attempt += 1;
       try {
